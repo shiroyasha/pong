@@ -41,7 +41,7 @@ APP = {
       window.direction = 1;
 
       var anim = new Kinetic.Animation(function(frame) {
-      	APP.render(frame);
+      	APP.render(frame);//komentar
       }, layer);
 
        anim.start();
