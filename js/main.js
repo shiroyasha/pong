@@ -41,14 +41,14 @@ APP = {
       window.direction = 1;
 
       var anim = new Kinetic.Animation(function(frame) {
-      	rect.attrs.x = ( rect.attrs.x + direction * ((Math.floor(500 * frame.timeDiff/1000)) ) ) % 478;
+      	APP.render(frame);
       }, layer);
 
        anim.start();
 	},
 
 	render: function(frame) {
-		
+		rect.attrs.x = ( rect.attrs.x + direction * ((Math.floor(500 * frame.timeDiff/1000)) ) ) % 478;
 		
 	}
 };
@@ -56,17 +56,5 @@ APP = {
 
 
 $(document).ready( APP.start );
-
-
-window.requestAnimFrame = (function(){
-  return  window.requestAnimationFrame       ||
-          window.webkitRequestAnimationFrame ||
-          window.mozRequestAnimationFrame    ||
-          window.oRequestAnimationFrame      ||
-          window.msRequestAnimationFrame     ||
-          function( callback ){
-            window.setTimeout(callback, 1000 / 60);
-          };
-})();
 
 
